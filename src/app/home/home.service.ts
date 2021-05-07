@@ -9,6 +9,6 @@ export class HomeService {
     constructor (private http: HttpClient) {}
 
     public getHelloMessage(): Observable<HelloMessage> {
-        return this.http.get<HelloMessage>('http://localhost:3000/');
+        return this.http.get<HelloMessage>('http://localhost:3000/home');
     }
 }
