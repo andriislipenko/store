@@ -3,3 +3,51 @@ html, body {
     margin: 0;
     width: 100%;
 }
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1b1b1b;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-size: 24pt;
+    padding: 15px 0;
+}
+
+input {
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    outline: none;
+    padding: 5px;
+    font-size: 12pt;
+    background: none;
+    width: 100%;
+
+    &:focus {
+        box-shadow: 0 0 5px 2px #b4affd;
+    }
+}
+
+.primary-button {
+    background-color: #b4affd;
+    outline: none;
+    padding: 7px 10px;
+    font-size: 12pt;
+    border: 2px solid #8077ff;
+    border-radius: 3px;
+    color: white;
+    font-weight: 600;
+
+    &:active {
+        box-shadow: 0 0 5px 2px #b4affd;
+    }
+}
+
+.form-group {
+    padding: 10px 0;
+}
+
+.form-submit {
+    padding-top: 15px;
+}

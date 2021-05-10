@@ -1,7 +1,14 @@
-<form [formGroup]='signInForm' (ngSubmit)='onSubmit()'>
-    <input type='email' formControlName='email' placeholder='email'/>
-    <br/>
-    <input type='password' formControlName='password' placeholder='password'/>
-    <br/>
-    <input type="submit" value="GO!"/>
-</form>
+<div class="sign-in-container">
+    <h3>Sign in</h3>
+    <form [formGroup]='signInForm' (ngSubmit)='onSubmit()'>
+        <div class="form-group">
+            <input type='email' formControlName='email' placeholder='email'/>
+        </div>
+        <div class="form-group">
+            <input type='password' formControlName='password' placeholder='password'/>
+        </div>
+        <div class="form-submit">
+            <button type="submit" class="primary-button">Sign in</button>
+        </div>
+    </form>
+</div>

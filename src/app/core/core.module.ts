@@ -9,11 +9,13 @@ import { AuthService } from './auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { AuthInterceptor } from './auth.interceptor';
 import { MenuComponent } from './menu/menu.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
     declarations: [
         SignInComponent,
-        MenuComponent
+        MenuComponent,
+        SignUpComponent
     ],
     imports: [
         CommonModule,
