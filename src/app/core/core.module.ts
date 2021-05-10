@@ -8,21 +8,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { SharedModule } from '../shared/shared.module';
 import { AuthInterceptor } from './auth.interceptor';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
     declarations: [
-    SignInComponent
-  ],
+        SignInComponent,
+        MenuComponent
+    ],
     imports: [
         CommonModule,
         HttpClientModule,
         AppRoutingModule,
         ReactiveFormsModule,
-        SharedModule
+        SharedModule,
     ],
     exports: [
-        HttpClientModule,
-        AppRoutingModule,
+        HttpClientModule, 
+        AppRoutingModule, 
+        MenuComponent
     ],
     providers: [
         AuthService,
@@ -30,8 +33,8 @@ import { AuthInterceptor } from './auth.interceptor';
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
-            multi: true
-        }
+            multi: true,
+        },
     ],
 })
 export class CoreModule {}

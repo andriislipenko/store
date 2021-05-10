@@ -14,7 +14,6 @@ export class AuthInterceptor implements HttpInterceptor {
         request: HttpRequest<unknown>,
         next: HttpHandler
     ): Observable<HttpEvent<unknown>> {
-        console.log('aaaaa');
         const token: string | undefined = localStorage[AuthService.LOCAL_STORAGE_TOKEN_KEY]
 
         if (token) {
