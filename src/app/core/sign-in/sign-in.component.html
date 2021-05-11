@@ -3,9 +3,17 @@
     <form [formGroup]='signInForm' (ngSubmit)='onSubmit()'>
         <div class="form-group">
             <input type='email' formControlName='email' placeholder='email'/>
+            <div *ngIf="signInForm.controls['email'].invalid && signInForm.controls['email'].touched" class="alert-message danger">
+                <div *ngIf="signInForm.controls['email'].errors.required">- email required</div>
+                <div *ngIf="signInForm.controls['email'].errors.pattern">- email invalid</div>
+            </div>
         </div>
         <div class="form-group">
             <input type='password' formControlName='password' placeholder='password'/>
+            <div *ngIf="signInForm.controls['password'].invalid && signInForm.controls['password'].touched" class="alert-message danger">
+                <div *ngIf="signInForm.controls['password'].errors.required">- password required</div>
+                <div *ngIf="signInForm.controls['password'].errors.minlength">- minimum 4 characters</div>
+            </div>
         </div>
         <div class="form-submit">
             <button type="submit" class="primary-button">Sign in</button>

@@ -1,1 +1,42 @@
-<p>sign-up works!</p>
+<div class="sign-up-container">
+    <h3>Sign up</h3>
+    <form [formGroup]='signUpForm' (ngSubmit)='onSubmit()'>
+        <div class="form-group">
+            <input type='text' formControlName='firstName' placeholder='first name'/>
+            <div *ngIf="signUpForm.controls['firstName'].invalid && signUpForm.controls['firstName'].touched" class="alert-message danger">
+                <div *ngIf="signUpForm.controls['firstName'].errors.required">- first name required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type='text' formControlName='lastName' placeholder='last name'/>
+            <div *ngIf="signUpForm.controls['lastName'].invalid && signUpForm.controls['lastName'].touched" class="alert-message danger">
+                <div *ngIf="signUpForm.controls['lastName'].errors.required">- last name required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type='email' formControlName='email' placeholder='email'/>
+            <div *ngIf="signUpForm.controls['email'].invalid && signUpForm.controls['email'].touched" class="alert-message danger">
+                <div *ngIf="signUpForm.controls['email'].errors.required">- email required</div>
+                <div *ngIf="signUpForm.controls['email'].errors.pattern">- email invalid</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type='password' formControlName='password' placeholder='password'/>
+            <div *ngIf="signUpForm.controls['password'].invalid && signUpForm.controls['password'].touched" class="alert-message danger">
+                <div *ngIf="signUpForm.controls['password'].errors.required">- password required</div>
+                <div *ngIf="signUpForm.controls['password'].errors.minlength">- minimum 4 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type='password' formControlName='passwordConfirmation' placeholder='password confirmation'/>
+            <div *ngIf="signUpForm.errors?.notEuqual && signUpForm.controls['passwordConfirmation'].touched" class="alert-message danger">
+                <div *ngIf="signUpForm.errors.notEuqual">
+                    - {{signUpForm.errors.notEuqual}}
+                </div>
+            </div>
+        </div>
+        <div class="form-submit">
+            <button type="submit" class="primary-button">Sign in</button>
+        </div>
+    </form>
+</div>

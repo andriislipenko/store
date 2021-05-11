@@ -25,6 +25,12 @@ export class AuthService {
         )
     }
 
+    public sign_up(user: User): Observable<LoginResponse> {
+        return this.http.post<LoginResponse>(`${this.apiBase}/sign_up`, user.formatRequest()).pipe(
+            tap(this.setSession)
+        )
+    }
+
     public logout(): void {
         localStorage.removeItem(AuthService.LOCAL_STORAGE_TOKEN_KEY);
     }

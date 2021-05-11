@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EMAIL_REGEXP } from 'src/app/shared/entities/regexp-patterns';
 import { User } from 'src/app/shared/entities/User';
 import { AuthService } from '../auth.service';
 import { LoginResponse } from '../entities/login-response';
@@ -24,17 +25,19 @@ export class SignInComponent implements OnInit {
     }
 
     public onSubmit(): void {
-        const user: User = this.signInForm.value;
+        if (this.signInForm.invalid) return;
+        
+        const user: User = new User(this.signInForm.value);
 
         this.authService.login(user).subscribe((res: LoginResponse) => {
             this.router.navigate(['home']);
-        })
+        });
     }
 
     private initSignInForm(): void {
         this.signInForm = this.formBuilder.group({
-            email: [''],
-            password: ['']
+            email: ['', [Validators.required, Validators.pattern(EMAIL_REGEXP)]],
+            password: ['', [Validators.required, Validators.minLength(4)]]
         })
     }
 }
