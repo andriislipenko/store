@@ -3,13 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { HomeModule } from './home/home.module';
+import { ItemsModule } from './items/items.module';
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
+        ItemsModule,
         BrowserModule,
-        HomeModule,
         CoreModule
     ],
     bootstrap: [AppComponent],
